@@ -9,6 +9,19 @@ class RimuoviDuplicati:
     def dup_remove(data: pd.DataFrame) -> pd.DataFrame:
         data_cleaned = data.drop_duplicates()
         return data_cleaned
+    
+class CodificaCategoriche:
+    """
+    Questa Classe permette di codificare le variabili categoriche in un DataFrame
+    """
+    @staticmethod
+    def label_encode(data: pd.DataFrame) -> pd.DataFrame:
+        data = data.copy()
+        for col in data.select_dtypes(include='object').columns:
+            unici = data[col].unique()
+            mapping = {val: idx for idx, val in enumerate(unici)}
+            data[col] = data[col].map(mapping)
+        return data
 
 class SaveDB:
     @staticmethod
@@ -38,7 +51,6 @@ class DataCleaner:
     @staticmethod
     def clean_and_save(data):
         data = data.drop(columns=["PassengerId", "Cabin", "Name"])
-        data = GestioneValoriNulli.riempi(data)
         data = CodificaCategoriche.label_encode(data)
 
         # Salvataggio del dataset pulito
