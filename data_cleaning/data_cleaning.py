@@ -9,7 +9,46 @@ class RimuoviDuplicati:
     def dup_remove(data: pd.DataFrame) -> pd.DataFrame:
         data_cleaned = data.drop_duplicates()
         return data_cleaned
-    
+
+class GestioneValoriNulli:
+    """
+    Classe per la gestione dei valori nulli in un DataFrame.
+    - Riempie con 0 le colonne di spesa.
+    - Riempie con 'False' i booleani.
+    - Riempie con la moda le categoriche.
+    - Riempie con la media le numeriche continue (es. Age).
+    """
+
+    @staticmethod
+    def gestisci_nulli(df: pd.DataFrame) -> pd.DataFrame:
+        df = df.copy()
+
+        # Colonne di spesa da riempire con 0
+        colonne_spesa = ['RoomService', 'FoodCourt', 'ShoppingMall', 'Spa', 'VRDeck']
+        for col in colonne_spesa:
+            if col in df.columns:
+                df[col] = df[col].fillna(0)
+
+        # Colonne boolean da riempire con 'False'
+        colonne_boolean = ['CryoSleep', 'VIP']
+        for col in colonne_boolean:
+            if col in df.columns:
+                df[col] = df[col].fillna('False')
+
+        # Colonne categoriche da riempire con la moda
+        colonne_categoriche = ['HomePlanet', 'Destination']
+        for col in colonne_categoriche:
+            if col in df.columns:
+                moda = df[col].mode()
+                if not moda.empty:
+                    df[col] = df[col].fillna(moda[0])
+
+        # Colonna numerica continua da riempire con la media
+        if 'Age' in df.columns:
+            df['Age'] = df['Age'].fillna(df['Age'].mean())
+
+        return df
+
 class CodificaCategoriche:
     """
     Questa Classe permette di codificare le variabili categoriche in un DataFrame
@@ -51,6 +90,7 @@ class DataCleaner:
     @staticmethod
     def clean_and_save(data):
         data = data.drop(columns=["PassengerId", "Cabin", "Name"])
+        data = RimuoviDuplicati.dup_remove(data)
         data = CodificaCategoriche.label_encode(data)
 
         # Salvataggio del dataset pulito
