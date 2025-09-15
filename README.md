@@ -107,32 +107,34 @@ input →  cleaning →  split →  preprocessing →  training →  valutazione
 
 
 ## Struttura delle cartelle
+
+```text
 Spaceship_Titanic/
-├── main.py # Script principale: pipeline end-to-end e confronto modelli
-├── data/ # Dataset ufficiale Kaggle (train/test)
-│ ├── train.csv # Dataset ufficiale Kaggle (train)
-│ ├── test.csv # Dataset ufficiale Kaggle (test)
-│ ├── submission.csv # Esempio submission Kaggle
-│ ├── cleaned/ # Dataset pulito (output cleaning)
-│ │ ├── cleaned_data.csv
-│ └── prova.csv # Eventuali file di lavoro
-├── data_cleaning/ # DataCleaner + FeatureEngineer + SaveDB + Cleaning
-│ ├── init.py
-│ ├── file_importer.py # Import CSV/XLSX/JSON (input da console)
-│ ├── data_cleaning.py # Script cleaning
-│ └── splitter_Xy.py # Estrazione X/y + train/test split (+ report)
+├── main.py                   # Script principale: pipeline end-to-end e confronto modelli
+├── data/                     # Dataset ufficiale Kaggle (train/test)
+│   ├── train.csv             # Dataset ufficiale Kaggle (train)
+│   ├── test.csv              # Dataset ufficiale Kaggle (test)
+│   ├── submission.csv        # Esempio submission Kaggle
+│   ├── cleaned/              # Dataset pulito (output cleaning)
+│   │   ├── cleaned_data.csv  
+│   └── prova.csv             # Eventuali file di lavoro
+├── data_cleaning/            # DataCleaner + FeatureEngineer + SaveDB + Cleaning
+│   ├── __init__.py
+│   ├── file_importer.py      # Import CSV/XLSX/JSON (input da console)
+│   ├── data_cleaning.py      # Script cleaning
+│   └── splitter_Xy.py        # Estrazione X/y + train/test split (+ report)
 ├── preprocessing_pipeline.py # ColumnTransformer (Simple/KNN Imputer + scaler + encoder)
-├── model/ # Modelli ML (pipeline, fit/predict, save/load)
-│ ├── init.py
-│ ├── base_model.py # BaseClassifier
-│ ├── logistic_regression.py# LogisticRegressionModel
-│ ├── svm.py # SVMModel
-│ ├── random_forest.py # RandomForestModel
-│ └── xgboost_model.py # XGBoostModel
-├── evaluation/ # Funzioni metriche
-│ ├── init.py
-│ └── metrics.py
-├── plots.py # Grafici (target, confusion, ROC, confronto modelli)
-├── reports/ # Output: grafici PNG + report TXT
-├── README.md # (questo file)
+├── model/                    # Modelli ML (pipeline, fit/predict, save/load)
+│   ├── __init__.py
+│   ├── base_model.py         # BaseClassifier
+│   ├── logistic_regression.py# LogisticRegressionModel
+│   ├── svm.py                # SVMModel
+│   ├── random_forest.py      # RandomForestModel
+│   └── xgboost_model.py      # XGBoostModel
+├── evaluation/               # Funzioni metriche
+│   ├── __init__.py
+│   └── metrics.py
+├── plots.py                  # Grafici (target, confusion, ROC, confronto modelli)
+├── reports/                  # Output: grafici PNG + report TXT
+├── README.md                 # (questo file)
 └── .gitignore
