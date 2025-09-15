@@ -1,0 +1,43 @@
+=== Logistic ===
+              precision    recall  f1-score   support
+
+           0     0.7981    0.7833    0.7906       863
+           1     0.7904    0.8048    0.7975       876
+
+    accuracy                         0.7941      1739
+   macro avg     0.7942    0.7941    0.7941      1739
+weighted avg     0.7942    0.7941    0.7941      1739
+
+
+=== SVM ===
+              precision    recall  f1-score   support
+
+           0     0.7856    0.8065    0.7959       863
+           1     0.8042    0.7831    0.7935       876
+
+    accuracy                         0.7947      1739
+   macro avg     0.7949    0.7948    0.7947      1739
+weighted avg     0.7950    0.7947    0.7947      1739
+
+
+=== RandomForest ===
+              precision    recall  f1-score   support
+
+           0     0.7803    0.8517    0.8144       863
+           1     0.8394    0.7637    0.7998       876
+
+    accuracy                         0.8074      1739
+   macro avg     0.8098    0.8077    0.8071      1739
+weighted avg     0.8100    0.8074    0.8070      1739
+
+
+=== XGBoost ===
+              precision    recall  f1-score   support
+
+           0     0.8157    0.8308    0.8232       863
+           1     0.8302    0.8151    0.8226       876
+
+    accuracy                         0.8229      1739
+   macro avg     0.8230    0.8229    0.8229      1739
+weighted avg     0.8230    0.8229    0.8229      1739
+
