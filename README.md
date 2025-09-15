@@ -116,14 +116,13 @@ Spaceship_Titanic/
 │   ├── test.csv              # Dataset ufficiale Kaggle (test)
 │   ├── submission.csv        # Esempio submission Kaggle
 │   ├── cleaned/              # Dataset pulito (output cleaning)
-│   │   ├── cleaned_data.csv  
-│   └── prova.csv             # Eventuali file di lavoro
+│   │   └── cleaned_data.csv  
 ├── data_cleaning/            # DataCleaner + FeatureEngineer + SaveDB + Cleaning
 │   ├── __init__.py
 │   ├── file_importer.py      # Import CSV/XLSX/JSON (input da console)
 │   ├── data_cleaning.py      # Script cleaning
-│   └── splitter_Xy.py        # Estrazione X/y + train/test split (+ report)
-├── preprocessing_pipeline.py # ColumnTransformer (Simple/KNN Imputer + scaler + encoder)
+│   ├──splitter_Xy.py        # Estrazione X/y + train/test split (+ report)
+|   └──preprocessing_pipeline.py # ColumnTransformer (Simple/KNN Imputer + scaler + encoder)
 ├── model/                    # Modelli ML (pipeline, fit/predict, save/load)
 │   ├── __init__.py
 │   ├── base_model.py         # BaseClassifier
